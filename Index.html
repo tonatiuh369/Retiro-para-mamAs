@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retiro para Mamás – Reconecta y Sana</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+–yellow: #f9e97e;
+–peach:  #f7b89a;
+–pink:   #f4a0b5;
+–rose:   #e8638c;
+–coral:  #f08060;
+–cream:  #fdf6ec;
+–dark:   #1a1208;
+}
+
+body {
+font-family: ‘DM Sans’, sans-serif;
+font-weight: 300;
+color: var(–dark);
+background: var(–cream);
+overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 80px 24px 100px;
+position: relative;
+overflow: hidden;
+background: linear-gradient(160deg, var(–yellow) 0%, var(–peach) 40%, var(–pink) 75%, #d97baa 100%);
+}
+.hero-blob1, .hero-blob2, .hero-blob3 {
+position: absolute;
+border-radius: 50%;
+pointer-events: none;
+}
+.hero-blob1 {
+width: 460px; height: 460px;
+top: -100px; right: -100px;
+background: rgba(255,255,255,.12);
+border: 1.5px dashed rgba(255,255,255,.4);
+animation: spin 30s linear infinite;
+}
+.hero-blob2 {
+width: 300px; height: 300px;
+bottom: -60px; left: -60px;
+background: rgba(255,255,255,.08);
+border: 1.5px dashed rgba(255,255,255,.35);
+animation: spin 22s linear infinite reverse;
+}
+.hero-blob3 {
+width: 200px; height: 200px;
+top: 30px; left: 30px;
+background: rgba(255,255,255,.06);
+border: 1px solid rgba(255,255,255,.25);
+animation: pulse 6s ease-in-out infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+
+.star { display: inline-block; font-size: 36px; margin-bottom: 20px; animation: fadeUp .6s ease both; }
+.hero-eyebrow {
+font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase;
+color: rgba(26,18,8,.6); margin-bottom: 16px; animation: fadeUp .7s ease .05s both;
+}
+.hero-title {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(52px, 12vw, 104px);
+font-weight: 400; line-height: 1;
+color: var(–dark); animation: fadeUp .8s ease .1s both;
+}
+.hero-title span { font-style: italic; color: #fff; text-shadow: 0 2px 20px rgba(0,0,0,.15); }
+.hero-tagline {
+font-family: ‘Playfair Display’, serif; font-style: italic;
+font-size: clamp(18px, 3.5vw, 28px);
+color: rgba(26,18,8,.7); margin-top: 14px; animation: fadeUp .9s ease .18s both;
+}
+.hero-pills {
+display: flex; flex-wrap: wrap; justify-content: center;
+gap: 10px; margin-top: 32px; animation: fadeUp 1s ease .26s both;
+}
+.pill {
+background: rgba(255,255,255,.55); backdrop-filter: blur(6px);
+border: 1px solid rgba(255,255,255,.7); border-radius: 40px;
+padding: 8px 18px; font-size: 13px; font-weight: 400; color: var(–dark);
+}
+.price-wrap { margin-top: 36px; animation: fadeUp 1s ease .34s both; }
+.price-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(26,18,8,.55); }
+.price-num {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(54px, 10vw, 80px); font-weight: 700; color: var(–dark); line-height: 1;
+}
+.price-num sup { font-size: .45em; vertical-align: top; margin-top: .2em; }
+.price-note { font-size: 12px; color: rgba(26,18,8,.5); margin-top: 4px; }
+.cta-hero {
+display: inline-block; margin-top: 32px; padding: 15px 44px;
+background: var(–dark); color: #fff; border-radius: 50px;
+font-size: 13px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase;
+text-decoration: none; transition: opacity .25s, transform .2s; animation: fadeUp 1s ease .42s both;
+}
+.cta-hero:hover { opacity: .82; transform: translateY(-2px); }
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(22px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── INSTRUCTORAS ── */
+.instructoras-wrap { background: var(–dark); padding: 64px 24px; text-align: center; }
+.inst-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(–peach); margin-bottom: 10px; }
+.inst-title { font-family: ‘Playfair Display’, serif; font-size: clamp(26px, 5vw, 40px); font-style: italic; color: #fff; margin-bottom: 40px; }
+.inst-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 700px; margin: 0 auto; }
+.inst-card {
+flex: 1 1 180px; max-width: 220px;
+background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+border-radius: 20px; padding: 28px 20px;
+}
+.inst-avatar {
+width: 64px; height: 64px; border-radius: 50%;
+margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 26px;
+}
+.av1 { background: linear-gradient(135deg, var(–yellow), var(–peach)); }
+.av2 { background: linear-gradient(135deg, var(–peach), var(–pink)); }
+.av3 { background: linear-gradient(135deg, var(–pink), var(–rose)); }
+.inst-name { font-family: ‘Playfair Display’, serif; font-size: 18px; font-weight: 400; color: #fff; margin-bottom: 4px; }
+.inst-role { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(–peach); }
+
+/* ── INFO TABLE ── */
+.info-section { background: linear-gradient(135deg, var(–yellow) 0%, #fce8b0 100%); padding: 64px 24px; }
+.info-inner { max-width: 700px; margin: 0 auto; }
+.info-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: rgba(26,18,8,.5); margin-bottom: 8px; }
+.info-title { font-family: ‘Playfair Display’, serif; font-size: clamp(28px, 5vw, 44px); color: var(–dark); margin-bottom: 32px; line-height: 1.15; }
+.info-title em { font-style: italic; color: var(–rose); }
+.info-table { width: 100%; border-collapse: collapse; }
+.info-table tr { border-bottom: 1px solid rgba(26,18,8,.1); }
+.info-table tr:last-child { border-bottom: none; }
+.info-table td { padding: 13px 6px; vertical-align: top; }
+.info-table td:first-child { font-weight: 500; width: 42%; color: rgba(26,18,8,.6); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+.info-table td:last-child { font-family: ‘Playfair Display’, serif; font-size: 17px; color: var(–dark); }
+
+/* ── PROGRAMA ── */
+.prog-section { background: var(–cream); padding: 72px 24px; }
+.prog-inner { max-width: 820px; margin: 0 auto; }
+.prog-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(–rose); margin-bottom: 8px; }
+.prog-title { font-family: ‘Playfair Display’, serif; font-size: clamp(30px, 5vw, 48px); color: var(–dark); margin-bottom: 48px; line-height: 1.15; }
+.prog-title em { font-style: italic; }
+.day-band {
+display: inline-flex; align-items: center; gap: 12px;
+background: linear-gradient(90deg, var(–peach), var(–pink));
+border-radius: 50px; padding: 8px 24px; margin-bottom: 28px;
+}
+.day-band-num { font-family: ‘Playfair Display’, serif; font-size: 28px; font-weight: 700; color: #fff; }
+.day-band-info { display: flex; flex-direction: column; }
+.day-band-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.75); }
+.day-band-date { font-size: 14px; font-weight: 500; color: #fff; }
+.timeline { position: relative; padding-left: 28px; margin-bottom: 48px; }
+.timeline::before {
+content: ‘’; position: absolute; left: 6px; top: 8px; bottom: 8px;
+width: 2px; background: linear-gradient(to bottom, var(–peach), var(–pink), var(–rose)); border-radius: 2px;
+}
+.tl-item { position: relative; padding: 0 0 28px 20px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot {
+position: absolute; left: -22px; top: 5px;
+width: 12px; height: 12px; border-radius: 50%;
+background: var(–rose); border: 2px solid var(–cream); box-shadow: 0 0 0 2px var(–rose);
+}
+.tl-name { font-family: ‘Playfair Display’, serif; font-size: 19px; font-weight: 400; color: var(–dark); margin-bottom: 4px; }
+.tl-tag {
+display: inline-block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+background: linear-gradient(90deg, var(–yellow), var(–peach)); color: var(–dark);
+border-radius: 30px; padding: 3px 10px; margin-bottom: 8px;
+}
+.tl-items { list-style: none; }
+.tl-items li {
+font-size: 13.5px; color: rgba(26,18,8,.7);
+padding: 2px 0 2px 14px; position: relative; line-height: 1.5;
+}
+.tl-items li::before { content: ‘◦’; position: absolute; left: 0; color: var(–rose); font-size: 14px; top: 0; }
+
+/* ── QUOTE ── */
+.quote-band { background: linear-gradient(120deg, var(–pink) 0%, var(–rose) 100%); padding: 52px 24px; text-align: center; }
+.quote-band p { font-family: ‘Playfair Display’, serif; font-size: clamp(20px, 4vw, 32px); font-style: italic; color: #fff; max-width: 640px; margin: 0 auto; line-height: 1.4; }
+.quote-band strong { font-style: normal; font-weight: 700; }
+
+/* ── INCLUDES ── */
+.inc-section { background: linear-gradient(160deg, #fce8c0 0%, var(–peach) 100%); padding: 72px 24px; }
+.inc-inner { max-width: 820px; margin: 0 auto; }
+.inc-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: rgba(26,18,8,.5); margin-bottom: 8px; }
+.inc-title { font-family: ‘Playfair Display’, serif; font-size: clamp(28px, 5vw, 44px); color: var(–dark); margin-bottom: 32px; line-height: 1.2; }
+.inc-title em { font-style: italic; color: var(–rose); }
+.inc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
+.inc-card { background: rgba(255,255,255,.65); border: 1px solid rgba(255,255,255,.8); border-radius: 20px; padding: 24px 18px; display: flex; flex-direction: column; gap: 10px; }
+.inc-icon { font-size: 28px; }
+.inc-text { font-size: 14px; color: var(–dark); line-height: 1.4; }
+
+/* ── REQUISITOS ── */
+.req-section { background: var(–cream); padding: 72px 24px; }
+.req-inner { max-width: 820px; margin: 0 auto; }
+.req-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(–rose); margin-bottom: 8px; }
+.req-title { font-family: ‘Playfair Display’, serif; font-size: clamp(28px, 5vw, 44px); color: var(–dark); margin-bottom: 32px; line-height: 1.2; }
+.req-title em { font-style: italic; }
+.req-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 24px; }
+.req-group-head { font-family: ‘Playfair Display’, serif; font-size: 17px; font-style: italic; color: var(–rose); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1.5px solid rgba(232,99,140,.25); }
+.req-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.req-list li { font-size: 13.5px; color: rgba(26,18,8,.75); padding-left: 18px; position: relative; line-height: 1.45; }
+.req-list li::before { content: ‘✦’; position: absolute; left: 0; font-size: 8px; color: var(–coral); top: 4px; }
+
+/* ── FOOTER ── */
+.footer { background: linear-gradient(160deg, #1a1208 0%, #2e1a0e 100%); padding: 72px 24px 56px; text-align: center; position: relative; overflow: hidden; }
+.footer::before { content: ‘’; position: absolute; width: 500px; height: 500px; border-radius: 50%; top: -200px; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(247,184,154,.12) 0%, transparent 70%); }
+.footer-moon { font-size: 40px; margin-bottom: 16px; display: block; }
+.footer-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(–peach); margin-bottom: 12px; }
+.footer-title { font-family: ‘Playfair Display’, serif; font-size: clamp(28px, 5vw, 46px); font-style: italic; color: #fff; margin-bottom: 36px; line-height: 1.2; }
+.footer-details { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 40px; margin-bottom: 36px; }
+.fd-item { display: flex; align-items: center; gap: 10px; font-size: 15px; color: rgba(255,255,255,.8); }
+.fd-item .fi { font-size: 20px; }
+.cta-footer {
+display: inline-block; padding: 15px 44px;
+background: linear-gradient(90deg, var(–peach), var(–rose));
+color: #fff; border-radius: 50px; font-size: 13px; font-weight: 500;
+letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+transition: opacity .25s, transform .2s; margin-bottom: 28px;
+}
+.cta-footer:hover { opacity: .85; transform: translateY(-2px); }
+.footer-note { font-size: 11px; color: rgba(255,255,255,.3); letter-spacing: .5px; }
+
+@media (max-width: 480px) {
+.timeline { padding-left: 20px; }
+.tl-item { padding-left: 16px; }
+.tl-dot { left: -14px; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-blob1"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-blob3"></div>
+  <div class="star">✦</div>
+  <div class="hero-eyebrow">Retiro de bienestar · Mayo 2026</div>
+  <h1 class="hero-title">Retiro para<br><span>Mamás</span></h1>
+  <p class="hero-tagline">Reconecta y Sana · Un fin de semana para ti</p>
+  <div class="hero-pills">
+    <span class="pill">📅 16 y 17 de mayo</span>
+    <span class="pill">🕑 Entrada 2pm · Salida 3pm</span>
+    <span class="pill">📍 Cabañas Pinares, Poncitlán</span>
+    <span class="pill">🌿 Autocuidado · Sanación · Conexión</span>
+  </div>
+  <div class="price-wrap">
+    <div class="price-label">Aportación</div>
+    <div class="price-num"><sup>$</sup>1,555 <small style="font-size:.35em;font-weight:400;">MXN</small></div>
+    <div class="price-note">Cupo limitado · Todo incluido</div>
+  </div>
+  <a href="https://wa.me/523931001076" class="cta-hero">¡Ven y vívelo!</a>
+</section>
+
+<!-- INSTRUCTORAS -->
+
+<section class="instructoras-wrap">
+  <div class="inst-eyebrow">Quiénes guían el retiro</div>
+  <h2 class="inst-title">Con el corazón de tres mujeres</h2>
+  <div class="inst-grid">
+    <div class="inst-card">
+      <div class="inst-avatar av1">🌸</div>
+      <div class="inst-name">Paz Pompa</div>
+      <div class="inst-role">Facilitadora</div>
+    </div>
+    <div class="inst-card">
+      <div class="inst-avatar av2">🌙</div>
+      <div class="inst-name">Lupita Martínez</div>
+      <div class="inst-role">Facilitadora</div>
+    </div>
+    <div class="inst-card">
+      <div class="inst-avatar av3">✨</div>
+      <div class="inst-name">Karla Trujillo</div>
+      <div class="inst-role">Facilitadora</div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO RÁPIDA -->
+
+<section class="info-section">
+  <div class="info-inner">
+    <div class="info-eyebrow">Detalles del retiro</div>
+    <h2 class="info-title">Un fin de semana<br><em>solo para ti</em></h2>
+    <table class="info-table">
+      <tr><td>Fecha</td><td>16 y 17 de mayo, 2026</td></tr>
+      <tr><td>Horario entrada</td><td>Sábado 16/05 · 2:00 pm</td></tr>
+      <tr><td>Cierre</td><td>Domingo 17/05 · 3:00 pm</td></tr>
+      <tr><td>Lugar</td><td>Cabañas Pinares, Poncitlán</td></tr>
+      <tr><td>Aportación</td><td>$1,555.00 MXN</td></tr>
+      <tr><td>Imparte</td><td>Paz Pompa · Lupita Martínez · Karla Trujillo</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- PROGRAMA -->
+
+<section class="prog-section">
+  <div class="prog-inner">
+    <div class="prog-eyebrow">Programa</div>
+    <h2 class="prog-title">Dos días de <em>presencia,<br>movimiento y sanación</em></h2>
+
+```
+<div class="day-band">
+  <span class="day-band-num">16</span>
+  <div class="day-band-info">
+    <span class="day-band-label">Día uno</span>
+    <span class="day-band-date">Sábado · Mayo</span>
+  </div>
+</div>
+<div class="timeline">
+  <div class="tl-item"><div class="tl-dot"></div>
+    <div class="tl-name">Bienvenida y Círculo de Apertura</div>
+    <ul class="tl-items">
+      <li>Recepción, registro y presentación desde el corazón</li>
+      <li>Instalación del altar colectivo con tu objeto especial</li>
+      <li>Acuerdos del retiro: tiempo tuyo, sin juicios, sin celular</li>
+    </ul>
+  </div>
+  <div class="tl-item"><div class="tl-dot"></div>
+    <div class="tl-name">Caminata Consciente</div>
+    <span class="tl-tag">Enraizar y recibir</span>
+    <ul class="tl-items">
+      <li>Caminata en silencio por la naturaleza para soltar el ruido mental</li>
+      <li>Meditación guiada en el foco tonal para recargar energía</li>
+    </ul>
+  </div>
+  <div class="tl-item"><div class="tl-dot"></div>
+    <div class="tl-name">Pausa de Descanso y Snack</div>
+    <ul class="tl-items">
+      <li>Tiempo libre para té, fruta o simplemente descansar</li>
+    </ul>
+  </div>
+  <div class="tl-item"><div class="tl-dot"></div>
+    <div class="tl-name">Terapia de Sanación para el Autocuidado</div>
+    <ul class="tl-items">
+      <li>Escritura terapéutica: carta a mi cuerpo agradeciendo lo que sostiene</li>
+    </ul>
+  </div>
+  <div class="tl-item"><div class="tl-dot"></div>
+    <div class="tl-name">Práctica de Yoga y Meditación</div>
+    <ul class="tl-items">
+      <li>Yoga suave enfocado en sanar la culpa y el cansancio</li>
+      <li>Meditación guiada para soltar y restaurar la energía</li>
+    </ul>
+  </div>
+  <div class="tl-item"><div class="tl-dot"></div>
+    <div class="tl-name">Cena para Compartir</div>
+    <span class="tl-tag">Nutrir en tribu</span>
+    <ul class="tl-items">
+      <li>Cada mamá trae un alimento para compartir</li>
+      <li>Comemos sin prisa, en comunidad</li>
+    </ul>
+  </div>
+  <div class="tl-item"><div class="tl-dot"></div>
+    <div class="tl-name">Ceremonia de Cacao · Lunada · Danza</div>
+    <span class="tl-tag">Abrir el corazón y gozar</span>
+    <ul class="tl-items">
+      <li>Círculo de cacao con intención y canto medicina</li>
+      <li>Danza libre intuitiva para mover lo que se estancó</li>
+      <li>Lunada: bombones, historias bajo las estrellas</li>
+    </ul>
+  </div>
+</div>
+
+<div class="day-band" style="background: linear-gradient(90deg, var(--pink), var(--rose));">
+  <span class="day-band-num">17</span>
+  <div class="day-band-info">
+    <span class="day-band-label">Día dos</span>
+    <span class="day-band-date">Domingo · Mayo</span>
+  </div>
+</div>
+<div class="timeline">
+  <div class="tl-item"><div class="tl-dot"></div>
+    <div class="tl-name">Desayuno Ligero Pre-Temazcal</div>
+    <ul class="tl-items">
+      <li>Fruta, té, algo ligero para preparar el cuerpo</li>
+      <li>Cada una trae su porción</li>
+    </ul>
+  </div>
+  <div class="tl-item"><div class="tl-dot"></div>
+    <div class="tl-name">10:00 am · Temazcal de Cierre</div>
+    <span class="tl-tag">Renacer</span>
+    <ul class="tl-items">
+      <li>Purificación, cantos y cierre de intenciones</li>
+      <li>⚠ Traer falda larga obligatoriamente</li>
+    </ul>
+  </div>
+  <div class="tl-item"><div class="tl-dot"></div>
+    <div class="tl-name">Comida Compartida y Círculo de Cierre</div>
+    <ul class="tl-items">
+      <li>Comida que cada una trae para compartir</li>
+      <li>Círculo de palabra: "¿Con qué me voy?"</li>
+      <li>Desmontar el altar · Recoger objetos personales</li>
+      <li>3:00 pm · Despedida 🌸</li>
+    </ul>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- QUOTE -->
+
+<div class="quote-band">
+  <p>"Un espacio tuyo, <strong>sin juicios, sin celular</strong>,<br>solo presencia y corazón."</p>
+</div>
+
+<!-- INCLUDES -->
+
+<section class="inc-section">
+  <div class="inc-inner">
+    <div class="inc-eyebrow">Tu aportación incluye</div>
+    <h2 class="inc-title"><em>Todo lo que necesitas</em><br>para reconectarte</h2>
+    <div class="inc-grid">
+      <div class="inc-card"><span class="inc-icon">🌿</span><span class="inc-text">Todas las actividades guiadas del programa</span></div>
+      <div class="inc-card"><span class="inc-icon">🍫</span><span class="inc-text">Ceremonia de cacao</span></div>
+      <div class="inc-card"><span class="inc-icon">🔥</span><span class="inc-text">Temazcal de cierre</span></div>
+      <div class="inc-card"><span class="inc-icon">🌙</span><span class="inc-text">Hospedaje 1 noche · Cabañas Pinares</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- REQUISITOS -->
+
+<section class="req-section">
+  <div class="req-inner">
+    <div class="req-eyebrow">Qué traer</div>
+    <h2 class="req-title">Lista de <em>requisitos</em></h2>
+    <div class="req-cols">
+      <div class="req-group">
+        <div class="req-group-head">Para compartir</div>
+        <ul class="req-list">
+          <li>Alimento para la cena del sábado</li>
+          <li>Desayuno ligero para antes del temazcal</li>
+          <li>Comida para compartir después del temazcal</li>
+          <li>Algo para la lunada: bombones o lo que gustes</li>
+        </ul>
+      </div>
+      <div class="req-group">
+        <div class="req-group-head">Para tu práctica</div>
+        <ul class="req-list">
+          <li>Falda larga o vestido (obligatoria para temazcal)</li>
+          <li>Tapete de yoga, toalla o cobija</li>
+          <li>Ropa cómoda y calientita para la noche</li>
+          <li>Pluma y libreta</li>
+          <li>Objeto especial para el altar colectivo</li>
+        </ul>
+      </div>
+      <div class="req-group">
+        <div class="req-group-head">Para tu corazón</div>
+        <ul class="req-list">
+          <li>Una intención desde el corazón para trabajar durante el retiro</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+  <span class="footer-moon">🌙</span>
+  <div class="footer-eyebrow">¿Lista para reconectarte?</div>
+  <div class="footer-title">Reserva tu lugar<br>y date este regalo</div>
+  <div class="footer-details">
+    <div class="fd-item"><span class="fi">📱</span><span>393 100 1076</span></div>
+    <div class="fd-item"><span class="fi">📍</span><span>Cabañas Pinares, Poncitlán</span></div>
+  </div>
+  <a href="https://wa.me/523931001076" class="cta-footer">Escríbenos por WhatsApp</a>
+  <div class="footer-note">Cupo limitado · Retiro para Mamás · Mayo 2026</div>
+</footer>
+
+</body>
+<style>html{
+ color:darkviolet;
+ font-size:25px;
+ font-weight:600;
+}
+</style><script>/*Here write your javascript code*/</script></html>
